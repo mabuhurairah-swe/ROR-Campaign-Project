@@ -1,2 +1,3 @@
 class ExpertUser < User
+  
 end

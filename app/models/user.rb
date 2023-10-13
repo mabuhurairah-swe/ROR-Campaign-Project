@@ -32,7 +32,10 @@ class User < ApplicationRecord
   # Custom validation to check if the user is qualified, not qualified or banned
   validate :validate_user_status
 
-
+  enum type: {
+    ExpertUser: 'ExpertUser',
+    NoviceUser: 'NoviceUser'
+  }
 
   private
     def validate_user_status

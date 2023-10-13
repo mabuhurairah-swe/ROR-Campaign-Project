@@ -24,6 +24,13 @@ class Campaign < ApplicationRecord
   validates :estimated_duration, 
               presence: true
 
-  
+  validate :user_must_be_expert, on: :create
+
+  private
+    def user_must_be_expert
+      unless user.ExpertUser?
+        errors.add(:user, "only expert users create campaigns")
+      end
+    end
 
 end
